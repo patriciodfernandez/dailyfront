@@ -1,0 +1,11 @@
+.container {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  height: 70vh;
+  @media screen and(max-width: 768px) {
+    container {
+      height: 50vh;
+    }
+  }
+}
