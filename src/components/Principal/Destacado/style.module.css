@@ -4,7 +4,7 @@
   grid-template-rows: 1fr;
   height: 70vh;
   @media screen and(max-width: 768px) {
-    container {
+    .container {
       height: 50vh;
     }
   }

@@ -11,8 +11,7 @@
   border-radius: 10px;
   border: 1px solid #ffffff2e;
   margin: 2vh;
-  height: 100%;
-}
+ }
 .cardContainer:hover {
   box-shadow: -1px 10px 20px 0px rgba(144, 144, 161, 0.8);
 }

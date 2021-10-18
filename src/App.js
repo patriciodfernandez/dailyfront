@@ -1,43 +1,40 @@
 import React, { useState, useEffect } from "react";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-// import Inicio from "./components/Inicio";
-// import ListaProductos from "./components/productos/ListaProductos";
-// import AgregarProducto from "./components/productos/AgregarProducto";
-// import EditarProducto from "./components/productos/EditarProducto";
-// import Navegacion from "./components/commons/Navegacion";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from "./components/commons/Footer";
 import Principal from "./components/Principal/";
 import "./App.css";
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+
+import { setNoticias } from "./store/state/noticias";
+import Login from "./components/Login";
+import Register from "./components/Register";
 
 function App() {
-  const URL = process.env.REACT_APP_API_URL;
-  console.log(URL);
-  const [productos, setProductos] = useState([]);
+  const dispatch = useDispatch();
 
-  useEffect(() => {
-    consultarAPI();
-  }, []);
+  React.useEffect(() => {
+    dispatch(setNoticias());
+  }, [dispatch]);
+  const noticiasArray = useSelector((state) => state.noticias);
 
-  const consultarAPI = async () => {
-    try {
-      const consulta = await fetch(URL);
-      console.log("consunlta", consulta);
-
-      const respuesta = await consulta.json();
-      console.log("respuesta", respuesta);
-      setProductos(respuesta);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  console.log("noticiasArray", noticiasArray);
 
   return (
     <Router>
       <Switch>
         <Route exact path="/">
           <Principal></Principal>
+        </Route>
+        <Route exact path="/login">
+          <Login></Login>
+        </Route>
+        <Route exact path="/register">
+          <Register></Register>
         </Route>
       </Switch>
       <Footer></Footer>

@@ -15,10 +15,6 @@ const index = () => {
   return (
     <div>
       <div className={styles.cardContainer}>
-        <div className={styles.bgAnimated}>
-          {/* <Lottie options={defaultOptions} height={400} width={400} /> */}
-        </div>
-
         <div className={styles.containerData}>
           <div>title</div>
           <div>titlesub </div>
