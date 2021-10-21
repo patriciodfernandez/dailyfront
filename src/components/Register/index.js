@@ -6,8 +6,8 @@ import swal from "sweetalert";
 import styles from "./style.module.css";
 
 const Register = () => {
-  // let history = useHistory();
-  // const dispatch = useDispatch();
+  let history = useHistory();
+  const dispatch = useDispatch();
   const [newUser, setNewUser] = useState({});
 
   const handleChange = (e) => {
@@ -16,6 +16,7 @@ const Register = () => {
   console.log("newUser", newUser);
   const submitHandler = (e) => {
     e.preventDefault();
+    console.log("ENTRE INICIOP");
 
     if (
       emailValidate == "mostrar" &&
@@ -179,7 +180,7 @@ const Register = () => {
     <>
       <div className="row no-gutters wrapper">
         <div className="col-10 col-lg-5">
-          <form className="shadow-lg">
+          <form className="shadow-lg" onSubmit={submitHandler}>
             <h1 className="mb-3">Register</h1>
 
             <div className="form-group">
@@ -254,6 +255,7 @@ const Register = () => {
                     : "is-invalid"
                 }             
                     `}
+                type="password"
                 name="password"
                 onChange={handleChange}
                 onBlur={requeridoPassword}

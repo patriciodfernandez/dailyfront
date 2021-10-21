@@ -8,7 +8,7 @@ const store = configureStore({
   reducer: {
     noticias: noticiasReducer,
     usuarios: usuariosReducer,
-  },
+   },
 });
 
 export default store;

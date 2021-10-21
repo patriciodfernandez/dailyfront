@@ -7,13 +7,13 @@ import axios from "axios";
 
 export const register = createAsyncThunk("REGISTER_REQUEST", (data) => {
   return axios
-    .post("http://localhost:4000/api/auth/register", data)
+    .post("http://localhost:4000/api/user/register", data)
     .then((respuesta) => []);
 });
 
 export const login = createAsyncThunk("LOGIN_REQUEST", (data) => {
   return axios
-    .post("http://localhost:4000/api/auth/login", {
+    .post("http://localhost:4000/api/user/login", {
       email: data.email,
       password: data.password,
     })
