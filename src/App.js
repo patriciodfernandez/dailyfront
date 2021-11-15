@@ -4,10 +4,9 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from "./components/commons/Footer";
-import Principal from "./components/Principal/";
+import Home from "./components/Home/";
 import "./App.css";
-import axios from "axios";
-import { useDispatch } from "react-redux";
+ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 
 import { setNoticias } from "./store/state/noticias";
@@ -28,7 +27,7 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/">
-          <Principal></Principal>
+          <Home></Home>
         </Route>
         <Route exact path="/login">
           <Login></Login>
