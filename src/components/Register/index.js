@@ -19,14 +19,14 @@ const Register = () => {
     console.log("ENTRE INICIOP");
 
     if (
-      emailValidate == "mostrar" &&
-      passwordValidate == "mostrar" &&
       nombreValidate == "mostrar" &&
       apellidoValidate == "mostrar" &&
-      codigoPostalValidate == "mostrar" &&
+      emailValidate == "mostrar" &&
+      passwordValidate == "mostrar" &&
       telefonoValidate == "mostrar" &&
       localidadValidate == "mostrar" &&
-      direccionValidate == "mostrar"
+      direccionValidate == "mostrar" &&
+      codigoPostalValidate == "mostrar"
     ) {
       console.log("ENTRE AL IFFFF");
       dispatch(register(newUser)).then((data) => {
@@ -34,6 +34,7 @@ const Register = () => {
           return swal("El usuario ya existe");
         } else {
           swal("¡Usuario registrado exitosamente!");
+
           history.push("/login");
         }
       });
