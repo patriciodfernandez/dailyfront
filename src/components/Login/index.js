@@ -6,6 +6,8 @@ import { useHistory } from "react-router-dom";
 import swal from "sweetalert";
 import { Link } from "react-router-dom";
 import styles from "./style.module.css";
+import axios from "axios";
+import { setUser } from "../../store/state/usuarios";
 
 const Login = () => {
   let history = useHistory();
@@ -23,8 +25,23 @@ const Login = () => {
           return swal("Usuario o contraseña incorrectos");
         } else if (data.meta.requestStatus === "fulfilled") {
           localStorage.setItem("token", data.payload.data.token);
+          
           history.push("/");
           swal("Logged in!");
+
+
+          
+    const token = localStorage.getItem("token")
+      ? localStorage.getItem("token")
+      : undefined;
+    if (token) {
+      axios.defaults.headers.authorization = `${token}`;
+      axios.post("http://localhost:4000/api/user/me").then((data) => {
+        dispatch(setUser(data.data));
+      });
+    }
+  
+
         }
       });
     } else {
@@ -42,8 +59,8 @@ const Login = () => {
 
         if (data.payload) {
           localStorage.setItem("token", data.payload.token);
-          history.push("/");
           swal("Logged in!");
+          history.push("/");
         }
       }
     );

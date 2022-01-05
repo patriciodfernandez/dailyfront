@@ -5,7 +5,9 @@ const index = () => {
   return (
     <div>
       <div>
+      
         <Main></Main>
+
       </div>
     </div>
   );

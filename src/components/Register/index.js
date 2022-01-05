@@ -6,6 +6,7 @@ import swal from "sweetalert";
 import styles from "./style.module.css";
 
 const Register = () => {
+  
   let history = useHistory();
   const dispatch = useDispatch();
   const [newUser, setNewUser] = useState({});
